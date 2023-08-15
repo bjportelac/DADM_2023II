@@ -1,4 +1,4 @@
-# Reto 0: Hola Mundo en Android## Desarrollo de Aplicaciones para Dispositivos Móviles 
+# Desarrollo de Aplicaciones para Dispositivos Móviles 
 ## Unversidad Nacional de Colombia - 2023-2
 
 ---
