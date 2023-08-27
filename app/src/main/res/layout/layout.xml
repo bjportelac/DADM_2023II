@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#181D22"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <TableLayout
+        android:id="@+id/play_grid"
+        android:layout_width="match_parent"
+        android:layout_height="385dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="5dp"
+        android:background="#801B1B1B">
+
+        <TableRow android:gravity="center_horizontal">
+
+            <Button
+                android:id="@+id/one"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:fontFamily="sans-serif-black"
+                android:text="@string/_1"
+                android:textSize="70sp" />
+
+            <Button
+                android:id="@+id/two"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:fontFamily="sans-serif-black"
+                android:text="@string/_2"
+                android:textSize="70sp" />
+
+            <Button
+                android:id="@+id/three"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:fontFamily="sans-serif-black"
+                android:text="@string/_3"
+                android:textSize="70sp" />
+        </TableRow>
+
+        <TableRow android:gravity="center_horizontal">
+
+            <Button
+                android:id="@+id/four"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:fontFamily="sans-serif-black"
+                android:text="@string/_4"
+                android:textSize="70sp" />
+
+            <Button
+                android:id="@+id/five"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:fontFamily="sans-serif-black"
+                android:text="@string/_5"
+                android:textSize="70sp" />
+
+            <Button
+                android:id="@+id/six"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:fontFamily="sans-serif-black"
+                android:text="@string/_6"
+                android:textSize="70sp" />
+        </TableRow>
+
+        <TableRow android:gravity="center_horizontal">
+
+            <Button
+                android:id="@+id/seven"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:fontFamily="sans-serif-black"
+                android:text="@string/_7"
+                android:textSize="70sp" />
+
+            <Button
+                android:id="@+id/eight"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:fontFamily="sans-serif-black"
+                android:text="@string/_8"
+                android:textSize="70sp" />
+
+            <Button
+                android:id="@+id/nine"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:fontFamily="sans-serif-black"
+                android:text="@string/_9"
+                android:textSize="70sp" />
+        </TableRow>
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/information"
+        android:layout_width="fill_parent"
+        android:layout_height="184dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center_horizontal"
+        android:text="@string/info"
+        android:textColor="#00BCD4"
+        android:textSize="48sp" />
+
+    <Button
+        android:id="@+id/newGame"
+        android:layout_width="265dp"
+        android:layout_height="76dp"
+        android:text="@string/newGame" />
+</LinearLayout>
