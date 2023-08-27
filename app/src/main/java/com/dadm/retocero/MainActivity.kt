@@ -25,7 +25,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("Android")
+                    Greeting("Android + Kotlin")
                 }
             }
         }
@@ -36,8 +36,8 @@ class MainActivity : ComponentActivity() {
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     Surface(color = Color.LightGray){
         Text(
-            text = "Hello world! This was made in $name!",
-            modifier = modifier.padding(24.dp)
+            text = "Hello world! This was made using $name!",
+            modifier = modifier.padding(20.dp)
         )
     }
 }
@@ -46,6 +46,6 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview() {
     RetoCeroTheme {
-        Greeting("Kotlin")
+        Greeting("Android + Kotlin")
     }
 }
