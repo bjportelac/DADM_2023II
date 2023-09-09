@@ -4,6 +4,9 @@ import java.util.Random;
 
 public class TicTacToeGame {
 
+    //Computer difficulty level
+    public enum DifficultyLevel{Easy, Hard, Expert};
+
     public static final int BOARD_SIZE = 9;
     private char mBoard[] = new char[BOARD_SIZE];
 
@@ -12,6 +15,7 @@ public class TicTacToeGame {
     public static final char COMPUTER_PLAYER = 'O';
     public static final char OPEN_SPOT = ' ';
 
+    private DifficultyLevel mDifficultyLevel = DifficultyLevel.Expert;
     private Random mRand;
 
     public TicTacToeGame() {
@@ -41,32 +45,78 @@ public class TicTacToeGame {
      * to actually make the computer move to that location.
      * @return The best move for the computer to make (0-8).
      */
-    public int getComputerMove(){
-        int move = -1;
+
+    /**
+     * Get a random move for the computer.
+     * @return A random move for the computer (0-8).
+     */
+    public int getRandomMove(){
+        int move;
+        do{
+            move = mRand.nextInt(BOARD_SIZE);
+        }while(mBoard[move] != OPEN_SPOT);
+        return move;
+    }
+
+    /**
+     * Get a winning move for the computer if available.
+     * @return The winning move if available, otherwise -1.
+     */
+    public int getWinningMove(){
         for(int i = 0; i < BOARD_SIZE; i++){
-            if(mBoard[i] != HUMAN_PLAYER && mBoard[i]!= COMPUTER_PLAYER){
+            if(mBoard[i] == OPEN_SPOT){
                 char current = mBoard[i];
-                // First check if there's a move the computer can make to win
                 mBoard[i] = COMPUTER_PLAYER;
                 if(checkForWinner() == 3){
+                    mBoard[i] = OPEN_SPOT;
                     return i;
-                }
-                // Check if there's a move the computer can make to block the human player from winning
-                mBoard[i] = HUMAN_PLAYER;
-                if(checkForWinner() == 2){
-                    move = i;
                 }
                 mBoard[i] = current;
             }
         }
+        return -1;
+    }
 
-        // If no winning or blocking move was found, make a random move
-        if(move == -1){
-            do{
-                move = mRand.nextInt(BOARD_SIZE);
-            }while (mBoard[move] == HUMAN_PLAYER || mBoard[move] == COMPUTER_PLAYER);
+    /**
+     * Get a blocking move to prevent the human player from winning.
+     * @return The blocking move if available, otherwise -1.
+     */
+    public int getBlockingMove() {
+        for (int i = 0; i < BOARD_SIZE; i++) {
+            if (mBoard[i] == OPEN_SPOT) {
+                char current = mBoard[i];
+                mBoard[i] = HUMAN_PLAYER;
+                if (checkForWinner() == 2) {
+                    mBoard[i] = OPEN_SPOT; // Restore the board state
+                    return i;
+                }
+                mBoard[i] = current;
+            }
         }
+        return -1; // No blocking move found
+    }
 
+
+    public int getComputerMove(){
+        int move = -1;
+        if(mDifficultyLevel == DifficultyLevel.Easy){
+            move = getRandomMove();
+        } else if(mDifficultyLevel == DifficultyLevel.Hard){
+            move = getWinningMove();
+            if(move == -1){
+                move = getRandomMove();
+            }
+        } else if (mDifficultyLevel == DifficultyLevel.Expert) {
+            // Try to win, but if that's not possible, block.
+            // If that's not possible, move anywhere.
+            move = getWinningMove();
+            if(move == -1){
+                move = getBlockingMove();
+                if(move == -1){
+                    move = getRandomMove();
+                }
+            }
+        }
         return move;
     }
 
