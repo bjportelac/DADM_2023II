@@ -15,7 +15,7 @@ public class TicTacToeGame {
     public static final char COMPUTER_PLAYER = 'O';
     public static final char OPEN_SPOT = ' ';
 
-    private DifficultyLevel mDifficultyLevel = DifficultyLevel.Expert;
+    public DifficultyLevel mDifficultyLevel = DifficultyLevel.Expert;
     private Random mRand;
 
     public TicTacToeGame() {
@@ -27,6 +27,17 @@ public class TicTacToeGame {
     public void clearBoard(){
         for(int i = 0; i < BOARD_SIZE; i++){
             mBoard[i] = OPEN_SPOT;
+        }
+    }
+
+    public TicTacToeGame (int difficultyLevel){
+        mRand = new Random();
+        if(difficultyLevel == 0){
+            this.mDifficultyLevel = DifficultyLevel.Easy;
+        } else if(difficultyLevel == 1){
+            this.mDifficultyLevel = DifficultyLevel.Hard;
+        } else if (difficultyLevel == 2) {
+            this.mDifficultyLevel = DifficultyLevel.Expert;
         }
     }
 
