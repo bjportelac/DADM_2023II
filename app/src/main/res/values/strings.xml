@@ -1,3 +1,31 @@
 <resources>
-    <string name="app_name">RetoCero</string>
+    <string name="app_name">TicTacToe R4</string>
+    <string name="_1">1</string>
+    <string name="_2">2</string>
+    <string name="_3">3</string>
+    <string name="_4">4</string>
+    <string name="_5">5</string>
+    <string name="_6">6</string>
+    <string name="_7">7</string>
+    <string name="_8">8</string>
+    <string name="_9">9</string>
+    <string name="info">Info</string>
+    <string name="newGame">Nuevo Juego</string>
+
+    <string name="first_human">Jugador, empiezas tu.</string>
+    <string name="turn_human">Tu turno.</string>
+    <string name="turn_computer">Turno de Android.</string>
+    <string name="result_tie">Es un empate!.</string>
+    <string name="result_human_wins">Ganaste!</string>
+    <string name="result_computer_wins">Android gano!</string>
+    <string name="new_game">Nuevo Juego</string>
+    <string name="difficulty">Dificultad</string>
+    <string name="quit">Salir</string>
+    <string name="difficulty_choose">Escoge la dificultad</string>
+    <string name="difficulty_easy">Facil</string>
+    <string name="difficulty_hard">Dificil</string>
+    <string name="difficulty_expert">Experto</string>
+    <string name="quit_question">¿Deseas salir?</string>
+    <string name="yes">Si</string>
+    <string name="no">No</string>
 </resources>
