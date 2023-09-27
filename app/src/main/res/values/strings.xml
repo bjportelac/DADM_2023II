@@ -11,7 +11,7 @@
     <string name="Eight">8</string>
     <string name="Seven">7</string>
 
-    <string name="score_start">Player: 0 Android: 0</string>
+    <string name="score_start">Player: 0 Tie: 0 Android: 0</string>
     <string name="information_space">Info</string>
     <string name="Human_turn">You play first!</string>
     <string name="Computer_turn">It\'s Android\'s turn.</string>

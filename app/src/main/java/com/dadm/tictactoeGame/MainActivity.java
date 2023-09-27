@@ -25,8 +25,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
 
-        mScore = new int[2];
-        mScore[0] = 1; mScore[1] = 1;
+        mScore = new int[3];
 
         mBoardButtons = new Button[TicTacToeGame.BOARD_SIZE];
         mBoardButtons[0] = (Button) findViewById(R.id.one);
@@ -104,14 +103,16 @@ public class MainActivity extends AppCompatActivity {
                     mInfoTextView.setText(R.string.Human_new_turn);
                 } else if (winner == 1){
                     mInfoTextView.setText(R.string.Tie);
+                    mScore[0] = mScore[0] +1;
+                    mScoreTextView.setText("Player: "+mScore[1]+" Tie: "+mScore[0]+" Android: "+mScore[2]);
                 } else if (winner == 2){
                     mInfoTextView.setText(R.string.Human_wins);
-                    mScore[0] = mScore[0] +1;
-                    mScoreTextView.setText("Player: "+mScore[0]+" "+" Android: "+mScore[1]);
+                    mScore[1] = mScore[1] +1;
+                    mScoreTextView.setText("Player: "+mScore[1]+" Tie: "+mScore[0]+" Android: "+mScore[2]);
                 } else {
                     mInfoTextView.setText(R.string.Computer_wins);
-                    mScore[1] = mScore[1] +1;
-                    mScoreTextView.setText("Player: "+mScore[0]+" "+" Android: "+mScore[1]);
+                    mScore[2] = mScore[2] +1;
+                    mScoreTextView.setText("Player: "+mScore[1]+" Tie: "+mScore[0]+" Android: "+mScore[2]);
                 }
             }
         }
