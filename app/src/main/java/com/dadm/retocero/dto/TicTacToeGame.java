@@ -4,6 +4,8 @@ import java.util.Random;
 
 public class TicTacToeGame {
 
+
+
     //Computer difficulty level
     public enum DifficultyLevel{Easy, Hard, Expert};
 
@@ -19,15 +21,7 @@ public class TicTacToeGame {
     private Random mRand;
 
     public TicTacToeGame() {
-        // Seed the random number generator
         mRand = new Random();
-    }
-
-    /** Clear the board of all X's and O's by setting all spots to OPEN_SPOT. */
-    public void clearBoard(){
-        for(int i = 0; i < BOARD_SIZE; i++){
-            mBoard[i] = OPEN_SPOT;
-        }
     }
 
     public TicTacToeGame (int difficultyLevel){
@@ -38,6 +32,13 @@ public class TicTacToeGame {
             this.mDifficultyLevel = DifficultyLevel.Hard;
         } else if (difficultyLevel == 2) {
             this.mDifficultyLevel = DifficultyLevel.Expert;
+        }
+    }
+
+    /** Clear the board of all X's and O's by setting all spots to OPEN_SPOT. */
+    public void clearBoard(){
+        for(int i = 0; i < BOARD_SIZE; i++){
+            mBoard[i] = OPEN_SPOT;
         }
     }
 
@@ -52,10 +53,6 @@ public class TicTacToeGame {
             mBoard[location] = player;
         }
     }
-    /** Return the best move for the computer to make. You must call setMove()
-     * to actually make the computer move to that location.
-     * @return The best move for the computer to make (0-8).
-     */
 
     /**
      * Get a random move for the computer.
@@ -107,7 +104,10 @@ public class TicTacToeGame {
         return -1; // No blocking move found
     }
 
-
+    /** Return the best move for the computer to make. You must call setMove()
+     * to actually make the computer move to that location.
+     * @return The best move for the computer to make (0-8).
+     */
     public int getComputerMove(){
         int move = -1;
         if(mDifficultyLevel == DifficultyLevel.Easy){
@@ -118,8 +118,6 @@ public class TicTacToeGame {
                 move = getRandomMove();
             }
         } else if (mDifficultyLevel == DifficultyLevel.Expert) {
-            // Try to win, but if that's not possible, block.
-            // If that's not possible, move anywhere.
             move = getWinningMove();
             if(move == -1){
                 move = getBlockingMove();
@@ -143,24 +141,26 @@ public class TicTacToeGame {
                 {0, 3, 6}, {1, 4, 7}, {2, 5, 8}, // columns
                 {0, 4, 8}, {2, 4, 6}  // diagonals
         };
-
-        // Check for each winning combination
         for (int[] combination : winCombinations) {
             if (mBoard[combination[0]] == HUMAN_PLAYER && mBoard[combination[1]] == HUMAN_PLAYER && mBoard[combination[2]] == HUMAN_PLAYER)
                 return 2;
             if (mBoard[combination[0]] == COMPUTER_PLAYER && mBoard[combination[1]] == COMPUTER_PLAYER && mBoard[combination[2]] == COMPUTER_PLAYER)
                 return 3;
         }
-
-        // Check for tie
         for (int i = 0; i < BOARD_SIZE; i++) {
-            // If we find a number, then no one has won yet
             if (mBoard[i] != HUMAN_PLAYER && mBoard[i] != COMPUTER_PLAYER)
                 return 0;
         }
-
         return 1;
+    }
 
+    /**
+     * Returns the char representing the token of the player on a board position
+     * @param i which corresponds to the index to consult
+     * @return char
+     */
+    public char getBoardOccupant(int i) {
+        return mBoard[i];
     }
 
 }
