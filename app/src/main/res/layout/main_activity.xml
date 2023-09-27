@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+
+    <LinearLayout
+        android:id="@+id/score_panel"
+        android:layout_width="match_parent"
+        android:layout_height="115dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_margin="20dp">
+
+        <TextView
+            android:id="@+id/score"
+            android:layout_width="330dp"
+            android:layout_height="42dp"
+            android:layout_margin="5dp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center_horizontal"
+            android:text="@string/score_start"
+            android:textSize="30sp"/>
+    </LinearLayout>
+
+    <TableLayout android:id="@+id/play_grid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp">
+
+        <TableRow android:layout_gravity="center_horizontal">
+            <Button android:id="@+id/one" android:layout_width="100dp"
+                android:layout_height="100dp" android:text="@string/One" android:textSize="70sp"
+                style="?android:attr/buttonBarButtonStyle" />
+            <Button android:id="@+id/two" android:layout_width="100dp"
+                android:layout_height="100dp" android:text="@string/Two" android:textSize="70sp"
+                style="?android:attr/buttonBarButtonStyle" />
+            <Button android:id="@+id/three" android:layout_width="100dp"
+                android:layout_height="100dp" android:text="@string/Three" android:textSize="70sp"
+                style="?android:attr/buttonBarButtonStyle" />
+        </TableRow>
+
+        <TableRow android:layout_gravity="center_horizontal">
+            <Button android:id="@+id/four" android:layout_width="100dp"
+                android:layout_height="100dp" android:text="@string/Four" android:textSize="70sp"
+                style="?android:attr/buttonBarButtonStyle" />
+            <Button android:id="@+id/five" android:layout_width="100dp"
+                android:layout_height="100dp" android:text="@string/Five" android:textSize="70sp"
+                style="?android:attr/buttonBarButtonStyle" />
+            <Button android:id="@+id/six" android:layout_width="100dp"
+                android:layout_height="100dp" android:text="@string/Six" android:textSize="70sp"
+                style="?android:attr/buttonBarButtonStyle" />
+        </TableRow>
+
+        <TableRow android:layout_gravity="center_horizontal">
+            <Button android:id="@+id/seven" android:layout_width="100dp"
+                android:layout_height="100dp" android:text="@string/Seven" android:textSize="70sp"
+                style="?android:attr/buttonBarButtonStyle" />
+            <Button android:id="@+id/eight" android:layout_width="100dp"
+                android:layout_height="100dp" android:text="@string/Eight" android:textSize="70sp"
+                style="?android:attr/buttonBarButtonStyle" />
+            <Button android:id="@+id/nine" android:layout_width="100dp"
+                android:layout_height="100dp" android:text="@string/Nine" android:textSize="70sp"
+                style="?android:attr/buttonBarButtonStyle" />
+        </TableRow>
+
+    </TableLayout>
+
+    <TextView android:id="@+id/information"
+        android:layout_width="fill_parent" android:gravity="center_horizontal"
+        android:layout_height="wrap_content" android:textSize="50sp"
+        android:text="@string/information_space" android:layout_margin="20dp"/>
+
+
+
+</LinearLayout>
