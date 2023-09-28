@@ -10,7 +10,6 @@ import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.View;
 
-
 public class BoardView extends View {
 
     public static final int GRID_WIDTH = 6;
@@ -87,4 +86,5 @@ public class BoardView extends View {
     public int getBoardCellHeight() {
         return getHeight() / 3;
     }
+
 }

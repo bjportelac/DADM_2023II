@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -27,8 +28,12 @@ public class MainActivity extends AppCompatActivity {
     private TextView mInfoTextView;
     private TextView mScoreTextView;
     private int[] mScore;
+
     private BoardView mBoardView;
     private boolean mGameOver = false;
+
+    private MediaPlayer mHumanMediaPlayer;
+    private MediaPlayer mComputerMediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,17 +58,12 @@ public class MainActivity extends AppCompatActivity {
 
         switch(id) {
             case DIALOG_DIFFICULTY_ID:
-
                 builder.setTitle(R.string.difficulty);
-
                 final CharSequence[] levels = {
                         getResources().getString(R.string.dif_easy),
                         getResources().getString(R.string.dif_hard),
                         getResources().getString(R.string.dif_expert)};
-
-                // selected is the radio button that should be selected.
                 int selected = mGame.getDifficultyLevel().ordinal();
-
                 builder.setSingleChoiceItems(levels, selected,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int item) {
@@ -83,24 +83,18 @@ public class MainActivity extends AppCompatActivity {
                             }
                         });
                 dialog = builder.create();
-
                 break;
 
             case DIALOG_ABOUT_ID:
-                // Create the about confirmation dialog
-
                 Context context = getApplicationContext();
                 LayoutInflater inflater = (LayoutInflater) context.getSystemService(LAYOUT_INFLATER_SERVICE);
                 View layout = inflater.inflate(R.layout.about_dialog, null);
                 builder.setView(layout);
                 builder.setPositiveButton("OK", null);
                 dialog = builder.create();
-
                 break;
 
             case DIALOG_QUIT_ID:
-                // Create the quit confirmation dialog
-
                 builder.setMessage(R.string.quit_question)
                         .setCancelable(false)
                         .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
@@ -110,9 +104,7 @@ public class MainActivity extends AppCompatActivity {
                         })
                         .setNegativeButton(R.string.no, null);
                 dialog = builder.create();
-
                 break;
-
         }
 
         return dialog;
@@ -147,6 +139,20 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mHumanMediaPlayer = MediaPlayer.create(getApplicationContext(),R.raw.burst);
+        mComputerMediaPlayer = MediaPlayer.create(getApplicationContext(),R.raw.pop);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mHumanMediaPlayer.release();
+        mComputerMediaPlayer.release();
+    }
+
     private void startNewGame(){
         mGame.clearBoard();
         mBoardView.invalidate();
@@ -157,6 +163,11 @@ public class MainActivity extends AppCompatActivity {
         boolean move = false;
         if(mGame.setMove(player, location)){
             mBoardView.invalidate();
+            if(player == TicTacToeGame.HUMAN_PLAYER){
+                mHumanMediaPlayer.start();
+            }else{
+                mComputerMediaPlayer.start();
+            }
             move = true;
         }
         return move;
