@@ -155,7 +155,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void startNewGame(){
         mGame.clearBoard();
+        mGameOver = false;
+
+        mGame.clearBoard();
         mBoardView.invalidate();
+
         mInfoTextView.setText(R.string.Human_turn);
     }
 
