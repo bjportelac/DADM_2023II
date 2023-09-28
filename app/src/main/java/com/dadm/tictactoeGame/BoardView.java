@@ -21,8 +21,8 @@ public class BoardView extends View {
 
     public void initialize(){
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        mHumanBitmap = BitmapFactory.decodeResource(getResources(), 0);
-        mComputerBitmap = BitmapFactory.decodeResource(getResources(),1);
+        mHumanBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.x_asset);
+        mComputerBitmap = BitmapFactory.decodeResource(getResources(),R.drawable.o_asset);
     }
 
     public BoardView(Context context){
@@ -71,11 +71,11 @@ public class BoardView extends View {
             int right = left + cellWidth;
             int bottom = top + cellHeight;
 
-            /*if(mGame != null && mGame.getBoardOccupant(i) == TicTacToeGame.HUMAN_PLAYER){
-                canvas.drawBitmap(mHumanBitmap,null,new Rect(left,top,right,bottom),null);
+            if(mGame != null && mGame.getBoardOccupant(i) == TicTacToeGame.HUMAN_PLAYER){
+                canvas.drawBitmap(mHumanBitmap,null,new Rect(left,top,right,bottom),mPaint);
             }else if(mGame != null && mGame.getBoardOccupant(i) == TicTacToeGame.COMPUTER_PLAYER){
-                canvas.drawBitmap(mHumanBitmap,null,new Rect(left,top,right,bottom),null);
-            }*/
+                canvas.drawBitmap(mComputerBitmap,null,new Rect(left,top,right,bottom),mPaint);
+            }
 
         }
     }

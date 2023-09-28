@@ -15,6 +15,7 @@ public class TicTacToeGame {
 
     private final Random mRand;
     public DifficultyLevel mDifficultyLevel = null;
+    public char playerControl;
 
     public TicTacToeGame() {
         mDifficultyLevel = DifficultyLevel.Hard;
@@ -26,6 +27,7 @@ public class TicTacToeGame {
         for(int i = 0; i < BOARD_SIZE; i++){
             mBoard[i] = OPEN_SPOT;
         }
+        playerControl = HUMAN_PLAYER;
     }
 
     /** Set the given player at the given location on the game board.
@@ -34,10 +36,18 @@ public class TicTacToeGame {
      * @param player - The HUMAN_PLAYER or COMPUTER_PLAYER
      * @param location - The location (0-8) to place the move
      */
-    public void setMove(char player, int location){
-        if(location < BOARD_SIZE && mBoard[location] == OPEN_SPOT){
+    public boolean setMove(char player, int location){
+        boolean move = false;
+        if(player == playerControl && location < BOARD_SIZE && mBoard[location] == OPEN_SPOT){
             mBoard[location] = player;
+            if(playerControl == HUMAN_PLAYER){
+                playerControl = COMPUTER_PLAYER;
+            }else{
+                playerControl = HUMAN_PLAYER;
+            }
+            move = true;
         }
+        return move;
     }
 
     /**
@@ -69,7 +79,7 @@ public class TicTacToeGame {
      * Get a random move for the computer.
      * @return A random move for the computer (0-8).
      */
-    public int getRandomMove(){
+    private int getRandomMove(){
         int move;
         do{
             move = mRand.nextInt(BOARD_SIZE);
@@ -81,7 +91,7 @@ public class TicTacToeGame {
      * Get a winning move for the computer if available.
      * @return The winning move if available, otherwise -1.
      */
-    public int getWinningMove(){
+    private int getWinningMove(){
         for(int i = 0; i < BOARD_SIZE; i++){
             if(mBoard[i] == OPEN_SPOT){
                 char current = mBoard[i];
@@ -100,7 +110,7 @@ public class TicTacToeGame {
      * Get a blocking move to prevent the human player from winning.
      * @return The blocking move if available, otherwise -1.
      */
-    public int getBlockingMove() {
+    private int getBlockingMove() {
         for (int i = 0; i < BOARD_SIZE; i++) {
             if (mBoard[i] == OPEN_SPOT) {
                 char current = mBoard[i];
@@ -115,6 +125,9 @@ public class TicTacToeGame {
         return -1; // No blocking move found
     }
 
+    public char getBoardOccupant(int i) {
+        return mBoard[i];
+    }
 
     public int getComputerMove(){
         int move = -1;
