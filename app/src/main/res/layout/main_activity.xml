@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+
+    <RelativeLayout
+        android:id="@+id/score_panel"
+        android:layout_width="match_parent"
+        android:layout_height="115dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_margin="20dp">
+
+        <TextView
+            android:id="@+id/score"
+            android:layout_width="330dp"
+            android:layout_height="42dp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:text="@string/score_start"
+            android:textSize="25sp" />
+    </RelativeLayout>
+
+    <com.dadm.tictactoeGame.BoardView android:id="@+id/play_grid"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_margin="10dp"
+        android:layout_gravity="center"/>
+
+    <TextView android:id="@+id/information"
+        android:layout_width="fill_parent" android:gravity="center_horizontal"
+        android:layout_height="wrap_content" android:textSize="50sp"
+        android:text="@string/information_space" android:layout_margin="20dp"/>
+
+</LinearLayout>
