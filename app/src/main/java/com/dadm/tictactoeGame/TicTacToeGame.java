@@ -126,8 +126,6 @@ public class TicTacToeGame {
                 move = getRandomMove();
             }
         } else if (mDifficultyLevel == DifficultyLevel.Expert) {
-            // Try to win, but if that's not possible, block.
-            // If that's not possible, move anywhere.
             move = getWinningMove();
             if(move == -1){
                 move = getBlockingMove();
@@ -137,6 +135,14 @@ public class TicTacToeGame {
             }
         }
         return move;
+    }
+
+    public DifficultyLevel getDifficultyLevel() {
+        return mDifficultyLevel;
+    }
+
+    public void setDifficultyLevel(DifficultyLevel difficultyLevel) {
+        mDifficultyLevel = difficultyLevel;
     }
 
 

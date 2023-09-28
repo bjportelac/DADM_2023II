@@ -20,5 +20,17 @@
     <string name="Human_wins">You won!</string>
     <string name="Computer_wins">Android won!</string>
     <string name="New_game">New Game!</string>
+    <string name="difficulty">Difficulty</string>
+    <string name="quit">Quit</string>
+    <string name="about">About…</string>
+    <string name="dif_easy">Easy</string>
+    <string name="dif_hard">Hard</string>
+    <string name="dif_expert">Expert</string>
+    <string name="OK">Ok</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
+    <string name="quit_question">Quit game?</string>
+    <string name="app_description">TicTacToe game , small game to pass some free time! be carefull with the difficult, Experts is litterally an expert</string>
+    <string name="app_author_ext">Done By : Brayan Portela</string>
 
 </resources>
