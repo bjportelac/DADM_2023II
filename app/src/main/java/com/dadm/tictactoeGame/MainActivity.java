@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
     static final int DIALOG_ABOUT_ID = 2;
 
     private TicTacToeGame mGame;
-    private Button[] mBoardButtons;
     private TextView mInfoTextView;
     private TextView mScoreTextView;
     private int[] mScore;
@@ -35,18 +34,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.main_activity);
 
         mScore = new int[3];
-
-        mBoardButtons = new Button[TicTacToeGame.BOARD_SIZE];
-        mBoardButtons[0] = (Button) findViewById(R.id.one);
-        mBoardButtons[1] = (Button) findViewById(R.id.two);
-        mBoardButtons[2] = (Button) findViewById(R.id.three);
-        mBoardButtons[3] = (Button) findViewById(R.id.four);
-        mBoardButtons[4] = (Button) findViewById(R.id.five);
-        mBoardButtons[5] = (Button) findViewById(R.id.six);
-        mBoardButtons[6] = (Button) findViewById(R.id.seven);
-        mBoardButtons[7] = (Button) findViewById(R.id.eight);
-        mBoardButtons[8] = (Button) findViewById(R.id.nine);
-
         mInfoTextView = (TextView) findViewById(R.id.information);
         mScoreTextView = (TextView) findViewById(R.id.score);
         mGame = new TicTacToeGame();
@@ -157,22 +144,17 @@ public class MainActivity extends AppCompatActivity {
 
     private void startNewGame(){
         mGame.clearBoard();
-        for (int i = 0; i < mBoardButtons.length; i++) {
-            mBoardButtons[i].setText("");
-            mBoardButtons[i].setEnabled(true);
-            mBoardButtons[i].setOnClickListener(new ButtonClickListener(i));
-        }
         mInfoTextView.setText(R.string.Human_turn);
     }
 
     private void setMove(char player, int location) {
         mGame.setMove(player, location);
-        mBoardButtons[location].setEnabled(false);
+        /*mBoardButtons[location].setEnabled(false);
         mBoardButtons[location].setText(String.valueOf(player));
         if (player == TicTacToeGame.HUMAN_PLAYER)
             mBoardButtons[location].setTextColor(Color.rgb(0, 200, 0));
         else
-            mBoardButtons[location].setTextColor(Color.rgb(200, 0, 0));
+            mBoardButtons[location].setTextColor(Color.rgb(200, 0, 0));*/
     }
 
     private class ButtonClickListener implements View.OnClickListener {
@@ -183,7 +165,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         public void onClick(View view) {
-            if (mBoardButtons[location].isEnabled()) {
+            /*if (mBoardButtons[location].isEnabled()) {
                 setMove(TicTacToeGame.HUMAN_PLAYER, location);
 
                 int winner = mGame.checkForWinner();
@@ -210,40 +192,7 @@ public class MainActivity extends AppCompatActivity {
                     mScore[2] = mScore[2] +1;
                     mScoreTextView.setText("Player: "+mScore[1]+" Tie: "+mScore[0]+" Android: "+mScore[2]);
                 }
-            }
+            }*/
         }
-
     }
-
-    /*public static class DifficultyDialog extends DialogFragment{
-
-        @NonNull
-        @Override
-        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-
-            final CharSequence[] levels = {
-                    getResources().getString(R.string.dif_easy),
-                    getResources().getString(R.string.dif_hard),
-                    getResources().getString(R.string.dif_expert)};
-
-            int selected = mGame.getDifficultyLevel().ordinal();
-
-            return new AlertDialog.Builder(requireContext())
-                    .setTitle(getResources().getString(R.string.difficulty))
-                    .setCancelable(false)
-                    .setNegativeButton(getResources().getString(R.string.no),null)
-                    .setSingleChoiceItems(levels,selected, (dialogInterface, i) -> {
-                        if(i == 0){
-                            mGame.setDifficultyLevel(TicTacToeGame.DifficultyLevel.Easy);
-                        } else if (i == 1){
-                            mGame.setDifficultyLevel(TicTacToeGame.DifficultyLevel.Hard);
-                        }else{
-                            mGame.setDifficultyLevel(TicTacToeGame.DifficultyLevel.Expert);
-                        }
-
-                        Toast.makeText(getApplicationContext(),levels[i],Toast.LENGTH_SHORT).show();
-                    })
-                    .create();
-        }
-    }*/
 }
