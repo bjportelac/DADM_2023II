@@ -24,7 +24,7 @@
         <TextView
             android:id="@+id/information"
             android:layout_width="fill_parent" android:gravity="center_horizontal"
-            android:layout_height="wrap_content" android:textSize="50sp"
+            android:layout_height="wrap_content" android:textSize="25sp"
             android:text="@string/information_space" android:layout_margin="20dp"/>
 
         <TextView

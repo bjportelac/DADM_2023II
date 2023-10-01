@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean mGameOver = false;
     private SharedPreferences mPrefs;
 
+
     private MediaPlayer mHumanMediaPlayer;
     private MediaPlayer mComputerMediaPlayer;
 
@@ -64,7 +65,13 @@ public class MainActivity extends AppCompatActivity {
         mBoardView.setGame(mGame);
         mBoardView.setOnTouchListener(mTouchListener);
 
-
+        if(difficulty == 0) {
+            mGame.setDifficultyLevel(TicTacToeGame.DifficultyLevel.Easy);
+        } else if(difficulty == 1) {
+            mGame.setDifficultyLevel(TicTacToeGame.DifficultyLevel.Hard);
+        } else {
+            mGame.setDifficultyLevel(TicTacToeGame.DifficultyLevel.Expert);
+        }
 
         if(savedInstanceState == null){
             startNewGame();
@@ -73,6 +80,10 @@ public class MainActivity extends AppCompatActivity {
             mGameOver = savedInstanceState.getBoolean("mGameOver");
             mInfoTextView.setText(savedInstanceState.getCharSequence("mInfo"));
             mGame.setPlayerTurn(savedInstanceState.getChar("mPlayerTurns"));
+        }
+        displayScores();
+        if(!mGameOver && mGame.getPlayerTurn() == mGame.COMPUTER_PLAYER){
+            giveTurnToComputer();
         }
     }
 
@@ -188,6 +199,7 @@ public class MainActivity extends AppCompatActivity {
         ed.putInt("humanWins", this.mGame.getmHumanWins());
         ed.putInt("computerWins", this.mGame.getmAndroidWins());
         ed.putInt("ties", this.mGame.getmTies());
+        ed.putInt("difficultyLevel", mGame.getDifficultyLevel().ordinal());
         ed.commit();
     }
 
@@ -206,9 +218,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void displayScores() {
-        mHumanScoreTextView.setText(Integer.toString(this.mGame.getmHumanWins()));
-        mComputerScoreTextView.setText(Integer.toString(this.mGame.getmAndroidWins()));
-        mTiesScoreTextView.setText(Integer.toString(this.mGame.getmTies()));
+        mHumanScoreTextView.setText(String.format("Player: %d",this.mGame.getmHumanWins()));
+        mComputerScoreTextView.setText(String.format("Android: %d",this.mGame.getmAndroidWins()));
+        mTiesScoreTextView.setText(String.format("Ties: %d",this.mGame.getmTies()));
     }
 
     private boolean setMove(char player, int location) {
@@ -244,6 +256,7 @@ public class MainActivity extends AppCompatActivity {
             mComputerScoreTextView.setText("Android: "+mGame.getmAndroidWins());
             mGameOver = true;
         }
+        displayScores();
     }
 
     private View.OnTouchListener mTouchListener = new View.OnTouchListener() {
@@ -256,15 +269,7 @@ public class MainActivity extends AppCompatActivity {
             if(!mGameOver && setMove(TicTacToeGame.HUMAN_PLAYER,pos)){
                 int winner = mGame.checkForWinner();
                 if(winner == 0){
-                    mInfoTextView.setText(R.string.Computer_turn);
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            int move = mGame.getComputerMove();
-                            setMove(TicTacToeGame.COMPUTER_PLAYER, move);
-                            gameUpdater(mGame.checkForWinner());
-                        }
-                    },2000);
+                    giveTurnToComputer();
                 }else{
                     gameUpdater(winner);
                 }
@@ -279,6 +284,17 @@ public class MainActivity extends AppCompatActivity {
         this.mGame.setmHumanWins(0);
         displayScores();
         startNewGame();
+    }
+
+    private void giveTurnToComputer() {
+        mInfoTextView.setText(R.string.Computer_turn);
+        new Handler().postDelayed(new Runnable() {
+            public void run() {
+                int move = mGame.getComputerMove();
+                setMove(TicTacToeGame.COMPUTER_PLAYER, move);
+                gameUpdater(mGame.checkForWinner());
+            }
+        }, 2000);
     }
 
     private void startNewGame(){
