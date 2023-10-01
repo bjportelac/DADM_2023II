@@ -7,7 +7,7 @@ public class TicTacToeGame {
     public enum DifficultyLevel{Easy, Hard, Expert}
 
     public static final int BOARD_SIZE = 9;
-    private final char[] mBoard = new char[BOARD_SIZE];
+    private char[] mBoard = new char[BOARD_SIZE];
 
     public static final char HUMAN_PLAYER = 'X';
     public static final char COMPUTER_PLAYER = 'O';
@@ -16,6 +16,10 @@ public class TicTacToeGame {
     private final Random mRand;
     public DifficultyLevel mDifficultyLevel = null;
     public char playerControl;
+
+    private int mHumanWins = 0;
+    private int mAndroidWins = 0;
+    private int mTies = 0;
 
     public TicTacToeGame() {
         mDifficultyLevel = DifficultyLevel.Hard;
@@ -158,5 +162,43 @@ public class TicTacToeGame {
         mDifficultyLevel = difficultyLevel;
     }
 
+    public char[] getBoardState() {
+        return mBoard;
+    }
 
+    public void setBoardState(char[] boardState){
+        this.mBoard = boardState;
+    }
+
+    public char getPlayerTurn() {
+        return playerControl;
+    }
+
+    public void setPlayerTurn(char turn){
+        this.playerControl = turn;
+    }
+
+    public int getmHumanWins() {
+        return mHumanWins;
+    }
+
+    public void setmHumanWins(int mHumanWins) {
+        this.mHumanWins = mHumanWins;
+    }
+
+    public int getmAndroidWins() {
+        return mAndroidWins;
+    }
+
+    public void setmAndroidWins(int mAnddroidWins) {
+        this.mAndroidWins = mAnddroidWins;
+    }
+
+    public int getmTies() {
+        return mTies;
+    }
+
+    public void setmTies(int mTies) {
+        this.mTies = mTies;
+    }
 }

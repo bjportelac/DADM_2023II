@@ -41,5 +41,6 @@
     <string name="sound">Sound Mode</string>
     <string name="sound_on">sound ON</string>
     <string name="sound_off">Sound OFF</string>
+    <string name="reset_score">Reset scores</string>
 
 </resources>

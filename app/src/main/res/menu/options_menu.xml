@@ -4,6 +4,8 @@
         android:title="@string/New_game" />
     <item android:id="@+id/Ai_difficulty"
         android:title="@string/difficulty"/>
+    <item android:id="@+id/reset_scores"
+        android:title="@string/reset_score"/>
     <item android:id="@+id/quit"
         android:title="@string/quit"/>
     <item android:id="@+id/about"
