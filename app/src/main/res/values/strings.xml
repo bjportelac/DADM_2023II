@@ -37,10 +37,17 @@
     <string name="quit_question">Quit game?</string>
     <string name="app_description">TicTacToe game , small game to pass some free time! be careful with the difficult, Experts is literally an expert</string>
     <string name="app_author_ext">Done By : Brayan Portela</string>
-    
+
     <string name="sound">Sound Mode</string>
     <string name="sound_on">sound ON</string>
     <string name="sound_off">Sound OFF</string>
     <string name="reset_score">Reset scores</string>
+    <string name="online_mode">Online Mode</string>
+    <string name="offline_mode">Offline Mode</string>
+    <string name="match_prompt">Ready for an online match?</string>
+    <string name="nickname_prompt">Enter your nickname</string>
+    <string name="begin_game_prompt">Let\'s Begin</string>
+    <string name="player_two_space">Player Two</string>
+    <string name="player_one_space">Player One</string>
 
 </resources>

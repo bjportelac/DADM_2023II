@@ -20,7 +20,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class OfflineGameTTT extends AppCompatActivity {
 
     static final int DIALOG_DIFFICULTY_ID = 0;
     static final int DIALOG_QUIT_ID = 1;
@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
     private BoardView mBoardView;
     private boolean mGameOver = false;
     private SharedPreferences mPrefs;
-
 
     private MediaPlayer mHumanMediaPlayer;
     private MediaPlayer mComputerMediaPlayer;
@@ -135,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
                         .setCancelable(false)
                         .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                MainActivity.this.finish();
+                                OfflineGameTTT.this.finish();
                             }
                         })
                         .setNegativeButton(R.string.no, null);

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "148392638874",
+    "project_id": "tictactoe-ac76c",
+    "storage_bucket": "tictactoe-ac76c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:148392638874:android:4cb10d1f3d8d5b515a2223",
+        "android_client_info": {
+          "package_name": "com.dadm.tictactoeGame"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0sZXonEv6XrfUcBK7M7b2RyOjq5OQ6Z8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
