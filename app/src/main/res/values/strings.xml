@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="action_settings">Settings</string>
+    <string name="add_contact">Añadir Contacto</string>
+    <string name="softFab">Fabrica de Software</string>
+    <string name="dev">Desarrollo a la medida</string>
+    <string name="consult">Consultoria</string>
+    <string name="type">Tipo</string>
+    <string name="desc">Descripción</string>
+    <string name="mail">Correo</string>
+    <string name="phone">Telefono</string>
+    <string name="url">URL</string>
+    <string name="name">Nombre</string>
+    <string name="type_filter">Filtrar por:</string>
+    <string name="developer">desarrollador</string>
+    <string name="Factory">Fabricante</string>
+    <string name="filter_contacts">Filtrar contactos</string>
+    <string name="contact_id_tv">Ingrese el id del contacto</string>
+    <string name="code">Codigo</string>
+    <string name="chooseMenu">Escoja un menu</string>
+    <string name="see_contacts">Ver todos los contactos</string>
+    <string name="add">añadir contacto</string>
+    <string name="update">actualizar contacto</string>
+    <string name="remove">eliminar contacto</string>
+</resources>
