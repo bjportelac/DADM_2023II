@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">gpsMaps</string>
+    <string name="defaultRadiusVal">10</string>
+    <string name="viewMap">Ver mapa</string>
+    <string name="no_place_selected">No disponible</string>
+    <string name="radius">Radius:</string>
+</resources>
